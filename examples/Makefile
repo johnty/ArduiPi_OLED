@@ -29,13 +29,13 @@ endif
 prefix := /usr/local
 
 # define all programs
-PROGRAMS = oled_demo teleinfo-oled
+PROGRAMS = oled_demo teleinfo-oled simple gauge
 SOURCES = ${PROGRAMS:=.cpp}
 
 all: ${PROGRAMS}
 
 ${PROGRAMS}: ${SOURCES}
-	g++ ${CCFLAGS} -Wall  -lArduiPi_OLED $@.cpp -o $@
+	g++ ${CCFLAGS} -Wall -lwiringPi -lArduiPi_OLED $@.cpp -o $@
 
 clean:
 	rm -rf $(PROGRAMS)
