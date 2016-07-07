@@ -71,12 +71,12 @@ s_opts opts = {
 };
 
 void testscrolltext(void) {
-  display.setTextSize(1);
+  display.setTextSize(2);
   display.setTextColor(WHITE);
   display.setCursor(10,0);
   display.clearDisplay();
   
-  display.print("gauge example");
+  display.print("Analog\n Gauge \n Example!!");
   if (opts.oled != OLED_SH1106_I2C_128x64)
     display.startscrolldiagright(0x00, 0x0F);
   display.display();
@@ -239,7 +239,7 @@ int main(int argc, char **argv)
   while (keepRunning == 1)
   {
     int val = analogRead(BASE+0);
-    printf("read %i\n", val);
+    //printf("read %i\n", val);
     drawGauge(val*100/1023);
   }
 	
